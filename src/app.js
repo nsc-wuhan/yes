@@ -2,15 +2,15 @@ import "./public-path";
 import React from "react";
 import ReactDOM from "react-dom";
 import Router from "./router";
-import MyPage from "./pages";
 function render(props) {
   const { container } = props;
   console.log("container", container);
+  console.log("ReactDOM", ReactDOM);
   ReactDOM.render(
-    <MyPage />,
+    <Router />,
     container
-      ? container.querySelector("#box")
-      : document.querySelector("#root")
+      ? container.querySelector("#home-root")
+      : document.querySelector("#home-root")
   );
 }
 
@@ -32,6 +32,8 @@ export async function mount(props) {
 export async function unmount(props) {
   const { container } = props;
   ReactDOM.unmountComponentAtNode(
-    container ? container.querySelector("#box") : document.querySelector("#box")
+    container
+      ? container.querySelector("#home-root")
+      : document.querySelector("#home-root")
   );
 }

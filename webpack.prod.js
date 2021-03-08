@@ -3,15 +3,21 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 // 导入抽取CSS的插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const HTMLPlugin = require("html-webpack-plugin");
+const name = require("./package.json").name;
 module.exports = {
-  entry: path.resolve(__dirname, "src/components/index.js"),
+  entry: path.resolve(__dirname, "./src/index.js"),
   output: {
-    path: path.join(__dirname, "./lib"),
-    filename: "index.js",
-    libraryTarget: "umd", //发布组件专用
+    // path: path.join(__dirname, "./dist"),
+    // filename: "[name].[hash:8].js",
+    library: `${name}-[name]`,
+    libraryTarget: "umd",
+    jsonpFunction: `webpackJsonp_${name}`,
+    globalObject: "window",
+    publicPath: "./",
   },
   mode: "production",
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -61,11 +67,16 @@ module.exports = {
     // 插件
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    new HTMLPlugin({
+      title: "demo",
+      filename: "index.html",
+      template: path.resolve(__dirname, "./src/index.html"),
+    }),
   ],
-  externals: {
-    react: "react",
-    "react-dom": "ReactDOM",
-    "react-router-dom": "ReactRouterDOM",
-    echarts: "echarts",
-  },
+  // externals: {
+  //   react: "react",
+  //   "react-dom": "ReactDOM",
+  //   "react-router-dom": "ReactRouterDOM",
+  //   echarts: "echarts",
+  // },
 };

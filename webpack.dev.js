@@ -3,17 +3,19 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CleanPlugin = new CleanWebpackPlugin();
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const name = require("./package.json").name;
 const HTMLPlugin = require("html-webpack-plugin");
+
+console.log("name", name);
 module.exports = {
   entry: "./src/app.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
-    chunkFilename: "[name].js",
-    library: "home",
+    // path: path.resolve(__dirname, "dist"),
+    // filename: "[name].js",
+    // chunkFilename: "[name].js",
+    library: `${name}-[name]`,
     libraryTarget: "umd",
-    jsonpFunction: "webpackJsonp_home",
+    jsonpFunction: `webpackJsonp_${name}`,
     globalObject: "window",
   },
   mode: "development",
@@ -96,5 +98,4 @@ module.exports = {
       template: path.resolve(__dirname, "./src/index.html"),
     }),
   ],
-  devtool: "inline-source-map",
 };

@@ -1,12 +1,12 @@
 {
-  "name": "home",
+  "name": "home-app",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
   "repository": "https://github.com/bj-north-star/nsc-base-component.git",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.dev.js --open",
-    "build": "webpack --config  ./webpack.prod.js"
+    "build": "rimraf ./dist && webpack --config  ./webpack.prod.js"
   },
   "keywords": [
     ""
@@ -31,9 +31,11 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^3.2.0",
+    "less": "^4.1.1",
     "less-loader": "^6.1.0",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "rimraf": "^3.0.2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
@@ -41,7 +43,6 @@
   "dependencies": {
     "dva": "^2.4.1",
     "dva-loading": "^3.0.20",
-    "qiankun": "^2.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
