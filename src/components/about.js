@@ -11,7 +11,7 @@ function About(props) {
   return (
     <div>
       <h1>About Page2</h1>
-      <a onClick={() => jump()}>跳转到vue应用</a>
+      {/* <a onClick={() => jump()}>跳转到vue应用</a> */}
     </div>
   );
 }
