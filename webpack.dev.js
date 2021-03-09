@@ -10,9 +10,9 @@ console.log("name", name);
 module.exports = {
   entry: "./src/app.js",
   output: {
-    // path: path.resolve(__dirname, "dist"),
-    // filename: "[name].js",
-    // chunkFilename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+    chunkFilename: "[name].js",
     library: `${name}-[name]`,
     libraryTarget: "umd",
     jsonpFunction: `webpackJsonp_${name}`,

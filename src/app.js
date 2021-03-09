@@ -4,8 +4,6 @@ import ReactDOM from "react-dom";
 import Router from "./router";
 function render(props) {
   const { container } = props;
-  console.log("container", container);
-  console.log("ReactDOM", ReactDOM);
   ReactDOM.render(
     <Router />,
     container
@@ -21,7 +19,7 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-  console.log("[react16] react app bootstraped");
+  // console.log("[react16] react app bootstraped");
 }
 
 export async function mount(props) {
