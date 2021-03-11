@@ -2,10 +2,10 @@
 import React from "react";
 import MyComponent from "../components";
 import styles from "./index.less";
-export default function Index() {
+export default function Index(props) {
   return (
     <div className={styles["box"]}>
-      <MyComponent />
+      <MyComponent {...props} />
     </div>
   );
 }
