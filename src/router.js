@@ -10,15 +10,23 @@ import {
 import About from "./components/about";
 import MyPage from "./pages";
 // const Router = HashRouter;
-// const Router = BrowserRouter;
-const Router = MemoryRouter;
-const BasicRoute = () => (
-  <Router basename="/app1">
-    <Switch>
-      <Route exact path="/" component={(props) => <MyPage {...props} />} />
-      <Route exact path="/about" component={() => <About />} />
-    </Switch>
-  </Router>
-);
+const Router = BrowserRouter;
+// const Router = MemoryRouter;
+const BasicRoute = (props) => {
+  const IProps = props;
+  console.log("IProps", IProps);
+  return (
+    <Router basename="/app1">
+      <Switch>
+        <Route
+          exact
+          path="/"
+          component={(props) => <MyPage {...props} {...IProps} />}
+        />
+        <Route exact path="/about" component={() => <About {...IProps} />} />
+      </Switch>
+    </Router>
+  );
+};
 
 export default BasicRoute;

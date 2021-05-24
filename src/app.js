@@ -2,10 +2,11 @@ import "./public-path";
 import React from "react";
 import ReactDOM from "react-dom";
 import Router from "./router";
+import "antd/dist/antd.css";
 function render(props) {
   const { container } = props;
   ReactDOM.render(
-    <Router />,
+    <Router {...props} />,
     container
       ? container.querySelector("#home-root")
       : document.querySelector("#home-root")
@@ -24,6 +25,7 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log("[react16] props from main framework", props);
+  props.toggleMenu({ menuStatus: true });
   render(props);
 }
 

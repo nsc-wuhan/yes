@@ -1,8 +1,22 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 function About(props) {
+  useEffect(() => {
+    const toggleMenu = (menuStatus) => {
+      if (props.toggleMenu) {
+        props.toggleMenu({ menuStatus });
+      }
+    };
+
+    toggleMenu(false);
+
+    // 页面卸载的时候还原状态
+    return () => {
+      toggleMenu(true);
+    };
+  });
   const jump = () => {
     console.log("props", props);
     // props.history.push("/app2");

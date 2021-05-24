@@ -41,6 +41,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "antd": "^4.14.0",
     "dva": "^2.4.1",
     "dva-loading": "^3.0.20",
     "react": "^17.0.1",
